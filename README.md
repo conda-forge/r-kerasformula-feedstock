@@ -1,3 +1,7 @@
+<!--
+# -*- mode: jinja -*-
+-->
+
 About r-kerasformula
 ====================
 
@@ -7,15 +11,16 @@ Package license: GPL (>= 2)
 
 Feedstock license: BSD 3-Clause
 
-Summary: Adds a high-level interface for 'keras' neural nets. kms() fits neural net and accepts R formulas to aid data munging and hyperparameter selection. kms() can optionally accept a compiled keras_sequential_model() from 'keras'.  kms() accepts a number of parameters (like loss and optimizer) and splits the data into sparse test and training matrices. kms() returns a single object with predictions, a confusion matrix, and function call details.
+Summary: Adds a high-level interface for 'keras' neural nets. kms() fits neural net and accepts R formulas to aid data munging and hyperparameter selection. kms() can optionally accept a compiled keras_sequential_model() from 'keras'.  kms() accepts a number of parameters (like loss and optimizer) and splits the data into (optionally sparse) test and training matrices. kms() facilitates setting advanced hyperparameters (e.g., regularization). kms() returns a single object with predictions, a confusion matrix, and function call details.
 
 
 
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-kerasformula-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-kerasformula-feedstock)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-kerasformula-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-kerasformula-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-kerasformula-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-kerasformula-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-kerasformula-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-kerasformula-feedstock/branch/master)
 
 Current release info
 ====================
@@ -48,6 +53,8 @@ conda search r-kerasformula --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -103,3 +110,9 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@conda-forge/r](https://github.com/conda-forge/r/)
+
