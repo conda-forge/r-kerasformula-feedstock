@@ -1,4 +1,4 @@
-{% set version = '1.0.0' %}
+{% set version = '1.5.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: kerasformula_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/kerasformula_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/kerasformula/kerasformula_{{ version }}.tar.gz
-  sha256: befdd5bbdb12b4b5a54d4e31ff4bd4132c3e3e9042720423fd52f94c5ece1fc2
+  sha256: 8e55d2e20c54bd76b482d65d65918de7b37d40e2a766fab5aae8d3407cc095ac
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1000
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -28,11 +26,13 @@ requirements:
     - r-base
     - r-matrix
     - r-dplyr
+    - r-ggplot2
     - r-keras
   run:
     - r-base
     - r-matrix
     - r-dplyr
+    - r-ggplot2
     - r-keras
 
 test:
@@ -46,16 +46,36 @@ about:
   summary: Adds a high-level interface for 'keras' neural nets. kms() fits neural net and accepts
     R formulas to aid data munging and hyperparameter selection. kms() can optionally
     accept a compiled keras_sequential_model() from 'keras'.  kms() accepts a number
-    of parameters (like loss and optimizer) and splits the data into sparse test and
-    training matrices. kms() returns a single object with predictions, a confusion matrix,
+    of parameters (like loss and optimizer) and splits the data into (optionally sparse)
+    test and training matrices. kms() facilitates setting advanced hyperparameters (e.g.,
+    regularization). kms() returns a single object with predictions, a confusion matrix,
     and function call details.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
+    - conda-forge/r
+
+# Package: kerasformula
+# Type: Package
+# Title: A High-Level R Interface for Neural Nets
+# Version: 1.5.1
+# Author: Pete Mohanty [aut, cre]
+# Authors@R: person("Pete", "Mohanty", role = c("aut", "cre"), email = "pete.mohanty@gmail.com")
+# Maintainer: Pete Mohanty <pete.mohanty@gmail.com>
+# Description: Adds a high-level interface for 'keras' neural nets. kms() fits neural net and accepts R formulas to aid data munging and hyperparameter selection. kms() can optionally accept a compiled keras_sequential_model() from 'keras'.  kms() accepts a number of parameters (like loss and optimizer) and splits the data into (optionally sparse) test and training matrices. kms() facilitates setting advanced hyperparameters (e.g., regularization). kms() returns a single object with predictions, a confusion matrix, and function call details.
+# License: GPL (>= 2)
+# Encoding: UTF-8
+# LazyData: true
+# RoxygenNote: 6.0.1
+# VignetteBuilder: knitr
+# URL: https://github.com/rdrr1990/kerasformula
+# BugReports: https://github.com/rdrr1990/kerasformula/issues
+# Depends: keras, dplyr, Matrix
+# Imports: ggplot2
+# Suggests: tensorflow, knitr
+# NeedsCompilation: yes
+# Packaged: 2018-08-23 17:28:44 UTC; mohanty
+# Repository: CRAN
+# Date/Publication: 2018-08-23 17:52:14 UTC
