@@ -1,6 +1,5 @@
 {% set version = '1.5.1' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-kerasformula
@@ -13,8 +12,7 @@ source:
   sha256: 8e55d2e20c54bd76b482d65d65918de7b37d40e2a766fab5aae8d3407cc095ac
 
 build:
-  merge_build_host: True  # [win]
-  number: 4
+  number: 5
   rpaths:
     - lib/R/lib/
     - lib/
